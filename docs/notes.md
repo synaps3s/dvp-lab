@@ -31,12 +31,12 @@ Rollback with `kubectl rollout undo` reverses the process using the same mechani
 
 ### Commands worth remembering
 
-`kubectl get pods -w` - Watch pod state changes in real time
-`kubectl describe pod <name>` - Full detail including events (might be first stop when debugging)
-`kubectl logs <name> --previous` - Logs from a crashed container
-`kubectl rollout history deployment/<name>` - Revision history
-`kubectl rollout undo deployment/<name>` - Roll back to previous revision
-`kubectl delete pod <name> --grace-period=0 --force` - Simulate a hard crash
+- `kubectl get pods -w` - Watch pod state changes in real time
+- `kubectl describe pod <name>` - Full detail including events (might be first stop when debugging)
+- `kubectl logs <name> --previous` - Logs from a crashed container
+- `kubectl rollout history deployment/<name>` - Revision history
+- `kubectl rollout undo deployment/<name>` - Roll back to previous revision
+- `kubectl delete pod <name> --grace-period=0 --force` - Simulate a hard crash
 
 ---
 
