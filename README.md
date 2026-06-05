@@ -38,8 +38,8 @@ dvp-lab/
 ## Progress
 
 ### Kubernetes
-- [ ] Local cluster setup with Minikube
-- [ ] Deployments, ReplicaSets, rolling updates and rollbacks
+- [x] Local cluster setup with Minikube
+- [x] Deployments, ReplicaSets, rolling updates and rollbacks
 - [ ] Services: ClusterIP, NodePort, LoadBalancer
 - [ ] Ingress and path-based routing
 - [ ] ConfigMaps and Secrets management
