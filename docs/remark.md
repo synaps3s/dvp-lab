@@ -14,7 +14,7 @@ The ReplicaSEt uses labels, not names, to track ownership. Kubernetes also adds 
 
 ---
 
-NAME                         READY   STATUS    RESTARTS   AGE     LABELS
-nginx-demo-f66d69596-xhnsn   1/1     Running   0          2m28s   pod-template-hash=f66d69596
-NAME                         READY   STATUS    RESTARTS   AGE   LABELS
-nginx-demo-f66d69596-pq2vq   1/1     Running   0          84s   app=nginx-demo,pod-template-hash=f66d69596
+### Examples
+
+- `nginx-demo-f66d69596-xhnsn   1/1     Running   0          2m28s   pod-template-hash=f66d69596`
+- `nginx-demo-f66d69596-pq2vq   1/1     Running   0          84s   app=nginx-demo,pod-template-hash=f66d69596`
