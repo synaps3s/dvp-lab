@@ -47,3 +47,32 @@ Docker and Kubernetes is not the same. While Docker solves the "it runs on my de
 What we can say is: Docker is the metal container on the cargo, while Kubernetes is the logistic system who decides where to put each container on the ship, how many to bring and what each one of them has to do.
 
 We use both of them.
+
+---
+
+### How to talk to a Pod
+
+In this scenario we are going to talk about Service. What is a Service and why do we use it?
+Pods are quite tricky to communicate with, this since they have an unique ip who changes each time the Pod gets recreated. There is no point in sticking it in a hardcoded way.
+Here is where we encounter the ClusterIP, the NodePort and the LoadBalancer service. They all service a different purpose.
+
+The one I'm going to consider in this situation is the NodePort, mostly for a personal need.
+The NodePort exposes the Service on a host port, or in few words the port of the machine where Kubernetes is running on. You can reach the app from outside, using the `IP-of-the-node:port` url.
+
+The `.yaml` requires you to set up three ports:
+- `port`
+- `targetPort` - The one we set up inside the Deployment
+- `nodePort`
+
+Once we apply the service, all we need to do is to run `minikube service nginx-demo-service --url` (name may change from file to file).
+
+### Important to mention
+
+Inside our service conf, it is important to set the `selector` in order to match the app name we gave to the Pods inside the Deployment.
+This all is related to the fact a different name lead to different and unexpected behaviors.
+
+### Not Tested Yet
+
+- ClusterIp: the default type. It creates a stable IP that is reachable from the cluster only. Pods can communicate between eachothers but we can't reach them from outside the cluster.
+
+- LoadBalancer: it asks the cloud provider to make an external load balancer with a public IP who distributes the traffic on the Pods. No limitations.
