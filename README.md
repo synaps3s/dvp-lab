@@ -40,7 +40,7 @@ dvp-lab/
 ### Kubernetes
 - [x] Local cluster setup with Minikube
 - [x] Deployments, ReplicaSets, rolling updates and rollbacks
-- [ ] Services: ClusterIP, NodePort, LoadBalancer
+- [x] Services: ClusterIP, NodePort, LoadBalancer
 - [ ] Ingress and path-based routing
 - [ ] ConfigMaps and Secrets management
 - [ ] Persistent Volumes and StorageClass
