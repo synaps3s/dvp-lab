@@ -42,7 +42,7 @@ dvp-lab/
 - [x] Deployments, ReplicaSets, rolling updates and rollbacks
 - [x] Services: ClusterIP, NodePort, LoadBalancer
 - [ ] Ingress and path-based routing
-- [ ] ConfigMaps and Secrets management
+- [x] ConfigMaps and Secrets management
 - [ ] Persistent Volumes and StorageClass
 - [ ] Namespace isolation and ResourceQuota
 - [ ] Horizontal Pod Autoscaler

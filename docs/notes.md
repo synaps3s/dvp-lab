@@ -91,3 +91,12 @@ This is why we must use 3rd part apps along with the RBAC, Google Secret Manager
 Last but not least, if we change the content of a variable, it wont change live. Variables contents are injected during the creation of the Pods, this means we should recreate them if we want to change something. This is not a good practice since it can lead to downtime or unexpected behaviors.
 
 This is why it is useful to use an external password manager such Google Secret Manager with the External Secrets Operator to sync each secret in order to swap content at runtime.
+
+---
+
+### Ingress
+
+Ingress is a key feature for websites or services in general. Let's think about a website. This website has different services: one for posts, one for comments etc. 
+Let's suppose this website isn't a monolithic service where nginx or apache manages everything. How can we choose where the resize should go i.e. based on the traffic? We don't want to scale everything just for the comments. We may want to use NodePort but what is the main issue with this choice? NodePort uses different ports for each different use case. This would mean exposing and dealing with a lot of ports and during time, it could become difficult to work on them.
+
+This is why we use Ingress. It decides everything, how the routing works, where the effort should go, what is the behavior of the HTTP based on host and path, sending the traffic to the correct Service using a single point of ingress. 
