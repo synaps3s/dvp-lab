@@ -76,3 +76,18 @@ This all is related to the fact a different name lead to different and unexpecte
 - ClusterIp: the default type. It creates a stable IP that is reachable from the cluster only. Pods can communicate between eachothers but we can't reach them from outside the cluster.
 
 - LoadBalancer: it asks the cloud provider to make an external load balancer with a public IP who distributes the traffic on the Pods. No limitations.
+
+---
+
+### ConfigMap and Secret
+
+It is important to underline the correct usage of these two elements. The ConfigMap is a way to treat variables inside Pods. As well as the Secret. What is the main difference? While using the ConfigMap, variables get passed directly as is. This might not be a real problem if we talking about not sensible datas, but what if we need to pass passwords or tokens or who knows, very important infos?
+
+Well, in such case we may want to use Secret. While using secret we are telling Kubernetes to treat such infos in a more safe way rather than passing them freely. Does it mean that these variables are impossible to be found? 
+Well, no. Secret does not encrypt them, it just codes the variable using `base64`. This means everyone can decode them.
+
+This is why we must use 3rd part apps along with the RBAC, Google Secret Manager etc. to protect our env.
+
+Last but not least, if we change the content of a variable, it wont change live. Variables contents are injected during the creation of the Pods, this means we should recreate them if we want to change something. This is not a good practice since it can lead to downtime or unexpected behaviors.
+
+This is why it is useful to use an external password manager such Google Secret Manager with the External Secrets Operator to sync each secret in order to swap content at runtime.

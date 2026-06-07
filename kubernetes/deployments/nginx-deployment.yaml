@@ -31,3 +31,14 @@ spec:
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 10
+        env:
+        - name: AMBIENTE
+          valueFrom:
+            configMapKeyRef:
+              name: nginx-config
+              key: ambiente
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: nginx-secret
+              key: password
